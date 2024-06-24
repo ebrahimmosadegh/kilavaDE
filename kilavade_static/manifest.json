@@ -1,0 +1,29 @@
+{
+  "name": "«Kilava",
+  "short_name": "«Kilava",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "«Kilava web app.",
+  "icons": [{
+    "src": "img/iphone-pwa-icon-76.png",
+    "sizes": "76x76",
+    "type": "image/png"
+  }, {
+    "src": "img/iphone-pwa-icon-120.png",
+    "sizes": "120x120",
+    "type": "image/png"
+  }, {
+    "src": "img/iphone-pwa-icon-152.png",
+    "sizes": "152x152",
+    "type": "image/png"
+  }, {
+    "src": "img/iphone-pwa-icon-180.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }, {
+    "src": "img/android-icon-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
