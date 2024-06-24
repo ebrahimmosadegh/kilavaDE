@@ -1,0 +1,99 @@
+{% load static %}
+{% load render_partial %}
+
+<header class="header-wrap style2">
+    <div class="header-top ">
+    <div class="close-header-top xl-none">
+    <button type="button"><i class="las la-times"></i></button>
+    </div>
+    <div class="container">
+    <div class="row align-items-center">
+    <div class="col-xl-8 col-lg-12">
+    <div class="header-top-left">
+    <div class="contact-item" style="direction:ltr">
+    <i class="flaticon-call-1"></i>
+    <a href="tel:{{ setting.call }}">{{ setting.call }}</a>
+    </div>
+    <div class="contact-item">
+    <i class="flaticon-maps-and-flags"></i>
+    <p>{{ setting.address }}</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-12">
+    <div class="header-top-right">
+    <div class="navbar-option-item navbar-language dropdown language-option">
+    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="las la-globe"></i>
+    <span class="lang-name"></span>
+    </button>
+    <div class="dropdown-menu language-dropdown-menu">
+    <a class="dropdown-item" href="{{ setting.link }}">
+    <img src="{% static "icon/ir.png" %}" alt="flag">
+    فارسی
+    </a>
+    <a class="dropdown-item" href="http://www.kilava.de">
+    <img src="{% static "icon/de.png" %}" alt="flag">
+    Germany
+    </a>
+    </div>
+    </div>
+    <ul class="social-profile style2 list-style">
+    <li><a target="_blank" href="https://facebook.com/"><i class="flaticon-facebook-app-symbol"></i> </a></li>
+    <li><a target="_blank" href="https://twitter.com/"> <i class="flaticon-twitter"></i>
+    </a></li>
+    <li><a target="_blank" href="https://linkedin.com/"> <i class="flaticon-instagram-2"></i> </a></li>
+    <li><a target="_blank" href="https://instagram.com/"> <i class="flaticon-pinterest"></i> </a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="header-bottom">
+    <div class="container">
+    <div class="header-bottom-wrap">
+    <div class="row align-items-center">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-5">
+    <a href="{% url 'home' %}" class="logo"><img src="{{ setting.logo.url }}" alt="{{ service.link }}"></a>
+    </div>
+    <div class="col-xl-9 col-lg-6 col-md-6 col-7">
+    <div class="main-menu-wrap">
+    <div class="menu-close xl-none">
+    <a href="javascript:void(0)"><i class="las la-times"></i></a>
+    </div>
+    <div id="menu">
+    <ul class="main-menu list-style">
+    <li class="has-children">
+    <a class="menu-expand">سرویس</a>
+    <ul class="sub-menu list-style">
+        {% for service in services %}
+    <li><a  href="{{ service.get_absolute_url }}">{{ service.title }}</a></li>
+        {% endfor %}
+    </ul>
+    </li>
+    <li>
+    <a  href="{% url 'About:about-us' %}">درباره ما</a>
+    </li>
+    <li>
+    <a  href="{% url 'Contact:contact-us' %}">تماس با ما</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="mobile-bar-wrap">
+    <div class="mobile-top-bar xl-none">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+    <div class="mobile-menu xl-none">
+    <a href="javascript:void(0)"><i class="las la-bars"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </header>

@@ -1,0 +1,27 @@
+<!doctype html>
+{% load static %}
+{% load render_partial %}
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block meta_seo %}{% endblock %}
+    <meta property="og:locale" content="fa"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fafafa">
+
+    {% include 'shared/_HeaderReferences.html' %}
+    {% block Header_ref %}{% endblock %}
+</head>
+<body>
+    <div class="page-wrapper">
+        {% render_partial 'header' %}
+        {% block content %}{% endblock %}
+        {% render_partial 'footer' %}
+    </div>
+<a href="#" class="back-to-top"><i class="flaticon-next"></i> بالا</a>
+    {% block Footer_ref %}{% endblock %}
+    {% include 'shared/_FooterReferences.html' %}
+</body>
+</html>

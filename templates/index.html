@@ -1,0 +1,151 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}Kilava | {{ setting.title }}{% endblock %}
+{% block meta_seo %}
+    <meta name="description" content="{{ setting.tag_description }}"/>
+    <meta name="keywords" content="{{ setting.tag_keywords }}">
+    <meta property="og:title" content="{{ setting.title }}">
+    <meta property="og:description" content="{{ setting.tag_description }}">
+    <meta property="og:type" content="Kilava">
+    <meta property="og:url" content="{{ setting.link }}">
+    <meta property="og:image" content="{% static 'img/logo.png' %}">
+{% endblock %}
+{% block content %}
+
+<section class="hero-wrap style3 hero-bg-1">
+    <div class="overlay bg-vulcan op-9"></div>
+    <div class="hero-slider-one swiper-container">
+    <div class="swiper-wrapper">
+    {% for service in services %}
+        <div class="swiper-slide">
+            <div class="hero-slider-item">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="hero-content">
+                                <span>چه کاری ما انجام میدهیم</span>
+                                <h1>{{ service.title }}</h1>
+                                <p>{{ service.subtitle }}</p>
+                                <div class="hero-btn">
+                                    <a href="{{ service.get_absolute_url }}" class="btn style1">بیشتر بدانید</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hero-img">
+                                <img class="hero-slider-shape" src="{% static 'img/hero-shape-10.png' %}" alt="Image">
+                                <img class="hero-slider-img" src="{{ service.image.url }}" alt="{{ service.title }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="hero-slide-prev slider-btn style2"><i class="flaticon-left-arrow-1"></i></div>
+    <div class="hero-slide-next slider-btn style2"><i class="flaticon-next"></i></div>
+    </div>
+    </section>
+    <section class="about-wrap style3 pb-100">
+    <div class="container">
+    <div class="row gx-5 align-items-center">
+    <div class="col-lg-6">
+    <div class="about-img-wrap">
+    <div class="about-img-one">
+    <div class="about-img bg-f about-bg-3" data-background="{% if setting.bg_sm_homeSectionOne %}{{ setting.bg_sm_homeSectionOne.url }}{% endif %}"></div>
+    </div>
+    <div class="about-img-two">
+    <div class="about-img-text">
+    {{ setting.title_top_homeSectionOne|safe }}
+    </div>
+    <div class="about-img bg-f about-bg-4" data-background="{% if setting.bg_lg_homeSectionOne %}{{ setting.bg_lg_homeSectionOne.url }}{% endif %}"></div>
+    <div class="about-img-text">
+    {{ setting.title_bottom_homeSectionOne|safe }}
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6">
+     <div class="about-content">
+    <div class="content-title style1">
+    {{ setting.info_homeSectionOne|safe }}
+    <a href="{% url "About:about-us" %}" class="btn style3">خواندن بیشتر</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <section class="why-choose-wrap style3 ptb-100 bg-1">
+    <div class="container">
+    <div class="row gx-5">
+    <div class="col-lg-6">
+    <div class="why-choose-content">
+    
+    <div class="wh-item-wrap style2">
+    <div class="wh-item">
+    <div class="wh-icon">
+    <i class="flaticon-mountain"></i>
+    </div>
+    <div class="wh-text">
+    <h5><a href="services-one.html">
+        هدف</a></h5>
+    <p>
+        شرکت مهندسی کیلاوا برای پایدار ساختن جهان برای نسل‌های آینده با ایجاد راه‌حل‌های بازیافت و استفاده مجدد مسئولانه و اخلاقی با مدیریت و بازپس‌گیری ارزش وجود دارد.
+    </p>
+    </div>
+    </div>
+    <div class="wh-item">
+    <div class="wh-icon">
+    <i class="flaticon-diamond"></i>
+    </div>
+    <div class="wh-text">
+    <h5><a href="services-one.html">
+        چشم انداز</a></h5>
+    <p>
+        با ترویج و رعایت استانداردهای زیست محیطی، اخلاقی، کیفیت، ایمنی و بهداشت داده ها، رهبری جهانی را ارائه دهید.
+    </p>
+    </div>
+    </div>
+    <div class="wh-item">
+    <div class="wh-icon">
+    <i class="flaticon-analytics-1"></i>
+    </div>
+    <div class="wh-text">
+    <h5><a href="services-one.html">
+        ارزش</a></h5>
+    <p>
+        به مشتریان خود راه حل های سفارشی ارائه می کنیم که به آنها امکان می دهد با اطمینان خاطر از اینکه حداکثر ارزش را دریافت خواهند کرد، روی تجارت اصلی خود تمرکز کنند.
+    </p>
+    </div>
+    </div>
+    <div class="wh-item">
+    <div class="wh-icon">
+    <i class="flaticon-analytics-1"></i>
+    </div>
+    <div class="wh-text">
+    <h5><a href="services-one.html">تعهد</a></h5>
+    <p>
+        از ردپای جهانی همیشه سازگار خود برای دسترسی به بازارهای بین المللی برای رشد مسئولانه کسب و کار خود برای کارمندان، مشتریان و شرکای خود استفاده کنید.
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="wh-img bg-f wh-bg-4" data-background="{% if setting.bg_homeSectionTwo %}{{ setting.bg_homeSectionTwo.url }}{% endif %}">
+    <div class="tr-text-wrap">
+    <h2 class="transparent-text">
+    <span>100%</span> شرکت مورد اعتماد
+    </h2>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+{% endblock %}

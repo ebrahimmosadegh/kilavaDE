@@ -1,0 +1,71 @@
+{% load static %}
+{% load render_partial %}
+
+<footer class="footer-wrap style2 footer-bg-1">
+    <div class="overlay op-95 bg-vulcan "></div>
+    <div class="footer-top pt-100 pb-60">
+    <div class="container">
+    <div class="row">
+    <div class="footer-widget-wrap">
+    <div class="footer-widget">
+    <a href="{% url 'home' %}" class="footer-logo">
+    <img src="{{ setting.logo.url }}" alt="{{ setting.title }}">
+    </a>
+    <div class="newsletter-box">
+    <p>
+    </p>
+    </div>
+    <div class="social-box">
+    <span style="color:white;">شبکه اجتماعی</span><br/>
+    <ul class="social-profile style1 list-style">
+    <li><a target="_blank" href="https://facebook.com/"><i class="flaticon-facebook-app-symbol"></i> </a></li>
+    <li><a target="_blank" href="https://twitter.com/"> <i class="flaticon-twitter"></i> </a></li>
+    <li><a target="_blank" href="https://linkedin.com/"> <i class="flaticon-instagram-2"></i> </a></li>
+    <li><a target="_blank" href="https://instagram.com/"> <i class="flaticon-pinterest"></i> </a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="footer-widget">
+    <h4 class="footer-widget-title">کاری که ما انجام می دهیم</h4>
+    <ul class="footer-menu list-style">
+        {% for service in services %}
+        <li><a  href="{{ service.get_absolute_url }}"><i class="flaticon-next"></i>{{ service.title }}</a></li>
+        {% endfor %}
+
+    </ul>
+    </div>
+    <div class="footer-widget">
+    <h4 class="footer-widget-title">لینک های سریع</h4>
+    <ul class="footer-menu list-style">
+    <li><a href="{% url "About:about-us" %}"><i class="flaticon-next"></i>ما کی هستیم</a></li>
+    <li><a href="{% url 'Contact:contact-us' %}"><i class="flaticon-next"></i>تماس با ما</a></li>
+    </ul>
+    </div>
+    <div class="footer-widget">
+    <h4 class="footer-widget-title">در تماس باشید</h4>
+    <div class="contact-item">
+    <i class="flaticon-pin"></i>
+    <h6>آدرس</h6>
+    <p>{{ setting.address }}</p>
+    </div>
+    <div class="contact-item">
+    <i class="flaticon-call-1"></i>
+    <h6>ایمیل</h6>
+    <a href="mailto:{{ setting.email }}">{{ setting.email }}</a>
+    </div>
+    <div class="contact-item">
+    <i class="flaticon-email"></i>
+    <h6>تلفن</h6>
+    <a href="tel:{{ setting.call }}">{{ setting.call }}</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="footer-bottom">
+    <div class="copyright">
+        {{ setting.copyright|safe }}
+    </div>
+    </div>
+    </footer>
