@@ -1,0 +1,73 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}Kilava | {{ service.title }}{% endblock %}
+{% block meta_seo %}
+    <meta name="description" content="{{ setting.tag_description }}"/>
+    <meta name="keywords" content="{{ setting.tag_keywords }}">
+    <meta property="og:title" content="{{ setting.title }}">
+    <meta property="og:description" content="{{ setting.tag_description }}">
+    <meta property="og:type" content="Experience">
+    <meta property="og:url" content="{{ setting.link }}">
+    <meta property="og:image" content="{{ setting.logo.url }}">
+{% endblock %}
+{% block Header-ref %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}">
+{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="breadcrumb-wrap bg-f br-1" data-background="{% if service.cover %}{{ service.cover.url }}{% endif %}">
+    <div class="overlay bg-vulcan op-9"></div>
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-12">
+    <div class="breadcrumb-title">
+    <h2>{{ service.title }}</h2>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <section class="portfolio-details-wrap ptb-100">
+    <div class="container">
+    <div class="row gx-5">
+    <div class="col-xl-8">
+    <div class="single-portfolio-slider swiper-container">
+    <div class="swiper-wrapper">
+    {% for gallery in galleries %}
+    <div class="swiper-slide">
+        <div class="single-portfolio-item">
+        <img src="{{ gallery.image.url }}" alt="{{ service.title }}">
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="single-portfolio-pagination slider-pagination style2"></div>
+    </div>
+    {{ service.content|safe }}
+    </div>
+    <div class="col-xl-4">
+    <div class="sidebar">
+    <div class="sidebar-widget contact-widget bg-f hero-bg-1" data-background="{% if setting.logo %}{{ setting.logo.url }}{% endif %}">
+    <div class="overlay bg-vulcan op-9"></div>
+    <p>بیایید با هم کار کنیم</p>
+    <h3>به اجرای یک پروژه موفق نیاز دارید؟</h3>
+    <a href="tel:{{ setting.call }}" style="direction:ltr">{{ setting.call }}</a>
+    <a href="{% url "Contact:contact-us" %}" class="btn style3">تماس با ما</a>
+    </div>
+    <div class=" sidebar-widget schedule-widget sidebar-widget">
+    {{ setting.hour_work|safe }}
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+    {% block Footer-ref %}
+    {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+    {% endblock %}
+
+{% endblock %}
