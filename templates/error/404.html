@@ -1,0 +1,40 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}Kilava | خطای 404 {% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="breadcrumb-wrap bg-f br-whatwedo" data-background="{% if setting.bg_404 %}{{ setting.bg_404.url }}{% endif %}">
+    <div class="overlay bg-vulcan op-9"></div>
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-12">
+    <div class="breadcrumb-title">
+    <h2>خطا!</h2>
+    <ul class="breadcrumb-menu list-style">
+    <li><a href="{% url 'home' %}">صفحه نخست </a></li>
+    <li>خطای 404</li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="blog-details-wrap ptb-100">
+    <div class="container">
+    <div class="row gx-5">
+    <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+        <p>صفحه مورد نظر شما پیدا نشده است</p>
+        <a href="{% url 'home' %}">صفحه نخست</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </article>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

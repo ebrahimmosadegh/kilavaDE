@@ -1,0 +1,162 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block title %}
+  Kilava | تماس با ما
+{% endblock %}
+{% block content %}
+  <div class="content-wrapper">
+    <div class="breadcrumb-wrap bg-f br-1" data-background="{% if setting.bg_contactUs %}{{ setting.bg_contactUs.url }}{% endif %}">
+      <div class="overlay bg-vulcan op-9"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="breadcrumb-title">
+              <h2>تماس با ما</h2>
+              <ul class="breadcrumb-menu list-style">
+                <li>
+                  <a href="{% url 'home' %}">صفحه نخست</a>
+                </li>
+                <li>تماس با ما</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="contact-us-wrap pt-100 pb-75">
+      <div class="container">
+        <div class="section-title text-left style1 mb-40">
+          <span>ارسال پیام</span>
+          <h2>ما برای کمک به شما اینجا هستیم</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-box">
+              <div class="contact-icon">
+                <i class="flaticon-pin"></i>
+              </div>
+              <div class="contact-info">
+                <h5>آدرس ما</h5>
+                <p>
+                  {{ setting.address }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-box">
+              <div class="contact-icon">
+                <i class="flaticon-email"></i>
+              </div>
+              <div class="contact-info">
+                <h5>ایمیل</h5>
+                <a href="mailto:{{ setting.email }}">{{ setting.email }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-box">
+              <div class="contact-icon">
+                <i class="flaticon-call-1"></i>
+              </div>
+              <div class="contact-info">
+                <h5>شماره تماس</h5>
+                <a href="tel:{{ setting.call }}">{{ setting.call }}</a>
+                 {% if setting.mobile %}
+                 <a href="tel:{{ setting.mobile }}">{{ setting.mobile }}</a>
+                 {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-4">
+            <div class="comp-map">
+              {{ setting.location_maps|safe }}
+            </div>
+          </div>
+          <div class="col-xl-8">
+            <div class="contact-form">
+              {% if messages %}
+                {% for message in messages %}
+                  {% if 'contact_message_error' in message.extra_tags %}
+                    <div class="alert alert-danger" role="alert">
+                      <p class="direction mb-0">{{ message }}</p>
+                    </div>
+                  {% elif 'contact_message' in message.extra_tags %}
+                    <div class="alert alert-success" role="alert">
+                      <p class="direction mb-0">{{ message }}</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              <form class="form-wrap" id="contactForm" method="post" action="{% url 'Contact:contact-us' %}">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      {{ contact_form.fullname }}
+                      {% for error in contact_form.fullname.errors %}
+                        <p class="uk-text-danger">{{ error }}</p>
+                      {% endfor %}
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      {{ contact_form.email }}
+                      {% for error in contact_form.email.errors %}
+                        <p class="uk-text-danger">{{ error }}</p>
+                      {% endfor %}
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      {{ contact_form.call }}
+                      {% for error in contact_form.call.errors %}
+                        <p class="uk-text-danger">{{ error }}</p>
+                      {% endfor %}
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      {{ contact_form.subject }}
+                      {% for error in contact_form.subject.errors %}
+                        <p class="uk-text-danger">{{ error }}</p>
+                      {% endfor %}
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group v1">
+                      {{ contact_form.text }}
+                      {% for error in contact_form.text.errors %}
+                        <p class="uk-text-danger">{{ error }}</p>
+                      {% endfor %}
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="g-recaptcha" id="google_captcha" data-sitekey="{{ site_key_captcha }}" aria-required="required"></div>
+                  </div>
+                  <div class="col-lg-12">
+                    <button type="submit" id="SubmitContact" class="btn style1">ارسال پیام</button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </form>
+              <div class="posts"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+{% block Footer_ref %}
+  <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+{% endblock %}

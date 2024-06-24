@@ -1,0 +1,18 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}Kilava | خطای 500 {% endblock %}
+{% block content %}
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% if setting.bg_500 %}{{ setting.bg_500.url }}{% endif %}" />
+        </div>     
+        <div class="col-md-6">
+            <p>مشکلی برای سرور اینترنتی پیش آمده، لطفا به صفحه نخست مراجعه نمایید</p>
+            <a href="{% url 'home' %}">صفحه نخست</a>
+        </div>     
+    </div>
+   </div>
+{% endblock %}
