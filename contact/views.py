@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.shortcuts import render
 
 # Create your views here.
-from kilavair import settings
-from kilavair.views import settings as settings_website
+from project import settings
+from project.views import settings as settings_website
 from .forms import CreateContactForm
 from .models import ContactUs
 
@@ -29,11 +29,11 @@ def contact(request):
             cap_server_response = requests.post(url=cap_url, data=cap_data)
             cap_json = json.loads(cap_server_response.text)
             if cap_json['success'] == False:
-                messages.error(request, "تیک من ربات نیستم را علامت بزنید", extra_tags='contact_message_error')
+                messages.error(request, "please check I'm not a robot ", extra_tags='contact_message_error')
             else:
                 ContactUs.objects.create(fullname=fullname,call=call, email=email, subject=subject, text=text, is_read=False)
                 contact_form = CreateContactForm()
-                messages.success(request, "پیام شما با موفقیت ارسال شد.", extra_tags='contact_message')
+                messages.success(request, "Your message has been successfully sent..", extra_tags='contact_message')
         else:
             contact_form = CreateContactForm()
 

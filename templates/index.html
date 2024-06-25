@@ -10,11 +10,11 @@
     <meta property="og:description" content="{{ setting.tag_description }}">
     <meta property="og:type" content="Kilava">
     <meta property="og:url" content="{{ setting.link }}">
-    <meta property="og:image" content="{% static 'img/logo.png' %}">
+    <meta property="og:image" content="{{ setting.logo.url }}">
 {% endblock %}
 {% block content %}
 
-<section class="hero-wrap style3 hero-bg-1">
+<section class="hero-wrap style3 bg-f hero-bg-1" data-background="{% if setting.bg_slider_home %}{{ setting.bg_slider_home.url }}{% endif %}">
     <div class="overlay bg-vulcan op-9"></div>
     <div class="hero-slider-one swiper-container">
     <div class="swiper-wrapper">
@@ -25,11 +25,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="hero-content">
-                                <span>چه کاری ما انجام میدهیم</span>
+                                <span>WHAT WE DO</span>
                                 <h1>{{ service.title }}</h1>
                                 <p>{{ service.subtitle }}</p>
                                 <div class="hero-btn">
-                                    <a href="{{ service.get_absolute_url }}" class="btn style1">بیشتر بدانید</a>
+                                    <a href="{{ service.get_absolute_url }}" class="btn style1">more know</a>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
      <div class="about-content">
     <div class="content-title style1">
     {{ setting.info_homeSectionOne|safe }}
-    <a href="{% url "About:about-us" %}" class="btn style3">خواندن بیشتر</a>
+    <a href="{% url "About:about-us" %}" class="btn style3">more know</a>
     </div>
     </div>
     </div>
@@ -91,11 +91,10 @@
     <i class="flaticon-mountain"></i>
     </div>
     <div class="wh-text">
-    <h5><a href="services-one.html">
-        هدف</a></h5>
+    <h5><a href="#">
+        Target</a></h5>
     <p>
-        شرکت مهندسی کیلاوا برای پایدار ساختن جهان برای نسل‌های آینده با ایجاد راه‌حل‌های بازیافت و استفاده مجدد مسئولانه و اخلاقی با مدیریت و بازپس‌گیری ارزش وجود دارد.
-    </p>
+        Kilava Engineering exists to make the world sustainable for future generations by creating responsible and ethical recycling and reuse solutions that manage and recover value.    </p>
     </div>
     </div>
     <div class="wh-item">
@@ -103,10 +102,21 @@
     <i class="flaticon-diamond"></i>
     </div>
     <div class="wh-text">
-    <h5><a href="services-one.html">
-        چشم انداز</a></h5>
+    <h5><a href="#">
+        vision</a></h5>
     <p>
-        با ترویج و رعایت استانداردهای زیست محیطی، اخلاقی، کیفیت، ایمنی و بهداشت داده ها، رهبری جهانی را ارائه دهید.
+        Provide global leadership by promoting and adhering to environmental, ethical, quality, data safety and health standards.    </p>
+    </div>
+    </div>
+    <div class="wh-item">
+    <div class="wh-icon">
+    <i class="flaticon-analytics-1"></i>
+    </div>
+    <div class="wh-text">
+    <h5><a href="#">
+        Value</a></h5>
+    <p>
+        We provide our clients with customized solutions that allow them to focus on their core business with the confidence that they will receive maximum value.
     </p>
     </div>
     </div>
@@ -115,21 +125,9 @@
     <i class="flaticon-analytics-1"></i>
     </div>
     <div class="wh-text">
-    <h5><a href="services-one.html">
-        ارزش</a></h5>
+    <h5><a href="#">obligation</a></h5>
     <p>
-        به مشتریان خود راه حل های سفارشی ارائه می کنیم که به آنها امکان می دهد با اطمینان خاطر از اینکه حداکثر ارزش را دریافت خواهند کرد، روی تجارت اصلی خود تمرکز کنند.
-    </p>
-    </div>
-    </div>
-    <div class="wh-item">
-    <div class="wh-icon">
-    <i class="flaticon-analytics-1"></i>
-    </div>
-    <div class="wh-text">
-    <h5><a href="services-one.html">تعهد</a></h5>
-    <p>
-        از ردپای جهانی همیشه سازگار خود برای دسترسی به بازارهای بین المللی برای رشد مسئولانه کسب و کار خود برای کارمندان، مشتریان و شرکای خود استفاده کنید.
+        Use your ever-adaptive global footprint to access international markets to grow your business responsibly for your employees, customers and partners.
     </p>
     </div>
     </div>
@@ -140,7 +138,7 @@
     <div class="wh-img bg-f wh-bg-4" data-background="{% if setting.bg_homeSectionTwo %}{{ setting.bg_homeSectionTwo.url }}{% endif %}">
     <div class="tr-text-wrap">
     <h2 class="transparent-text">
-    <span>100%</span> شرکت مورد اعتماد
+    <span>100%</span> Trusted company
     </h2>
     </div>
     </div>

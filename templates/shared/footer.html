@@ -1,7 +1,7 @@
 {% load static %}
 {% load render_partial %}
 
-<footer class="footer-wrap style2 footer-bg-1">
+<footer class="footer-wrap style2 bg-f footer-bg-1" data-background="{% if setting.bg_footer %}{{ setting.bg_footer.url }}{% endif %}">
     <div class="overlay op-95 bg-vulcan "></div>
     <div class="footer-top pt-100 pb-60">
     <div class="container">
@@ -16,7 +16,7 @@
     </p>
     </div>
     <div class="social-box">
-    <span style="color:white;">شبکه اجتماعی</span><br/>
+    <span style="color:white;">Follow US</span><br/>
     <ul class="social-profile style1 list-style">
     <li><a target="_blank" href="https://facebook.com/"><i class="flaticon-facebook-app-symbol"></i> </a></li>
     <li><a target="_blank" href="https://twitter.com/"> <i class="flaticon-twitter"></i> </a></li>
@@ -26,7 +26,7 @@
     </div>
     </div>
     <div class="footer-widget">
-    <h4 class="footer-widget-title">کاری که ما انجام می دهیم</h4>
+    <h4 class="footer-widget-title">WHAT WE DO</h4>
     <ul class="footer-menu list-style">
         {% for service in services %}
         <li><a  href="{{ service.get_absolute_url }}"><i class="flaticon-next"></i>{{ service.title }}</a></li>
@@ -35,27 +35,27 @@
     </ul>
     </div>
     <div class="footer-widget">
-    <h4 class="footer-widget-title">لینک های سریع</h4>
+    <h4 class="footer-widget-title">Quick Links</h4>
     <ul class="footer-menu list-style">
-    <li><a href="{% url "About:about-us" %}"><i class="flaticon-next"></i>ما کی هستیم</a></li>
-    <li><a href="{% url 'Contact:contact-us' %}"><i class="flaticon-next"></i>تماس با ما</a></li>
+    <li><a href="{% url "About:about-us" %}"><i class="flaticon-next"></i>Who we are</a></li>
+    <li><a href="{% url 'Contact:contact-us' %}"><i class="flaticon-next"></i>Contact us</a></li>
     </ul>
     </div>
     <div class="footer-widget">
-    <h4 class="footer-widget-title">در تماس باشید</h4>
+    <h4 class="footer-widget-title">Get In Touch</h4>
     <div class="contact-item">
     <i class="flaticon-pin"></i>
-    <h6>آدرس</h6>
+    <h6>Address</h6>
     <p>{{ setting.address }}</p>
     </div>
     <div class="contact-item">
     <i class="flaticon-call-1"></i>
-    <h6>ایمیل</h6>
+    <h6>Email</h6>
     <a href="mailto:{{ setting.email }}">{{ setting.email }}</a>
     </div>
     <div class="contact-item">
     <i class="flaticon-email"></i>
-    <h6>تلفن</h6>
+    <h6>Call</h6>
     <a href="tel:{{ setting.call }}">{{ setting.call }}</a>
     </div>
     </div>

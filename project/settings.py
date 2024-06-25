@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zo50*^h#uwjk14$%*yn9t%9np_xdo_lhk^uixj(u^$mcqk0ada'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,9 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_render_partial',
+    'django.contrib.sites', #add sites to installed apps
+    'django.contrib.sitemaps',   #add Django sitemaps to installed apps
     # install package
     'tinymce',
+    #my app
+    'contact',
+    'about',
+    'services',
+    'tools',
+    'privacy',
 ]
+
+SITE_ID = 1   #define the site id
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/kilavade_static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "kilavade_static")
+STATIC_ROOT = os.path.join(BASE_DIR, "kilavade_static", "static")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Managing media
@@ -130,6 +142,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "kilavade_media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+GOOGLE_RECAPTCHA_SITE_KEY = config('GOOGLE_RECAPTCHA_SITE_KEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = config('GOOGLE_RECAPTCHA_SECRET_KEY')
 
 TINYMCE_DEFAULT_CONFIG = {
     "entity_encoding": "raw",

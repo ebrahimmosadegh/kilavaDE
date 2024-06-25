@@ -10,7 +10,7 @@
     <div class="row align-items-center">
     <div class="col-xl-8 col-lg-12">
     <div class="header-top-left">
-    <div class="contact-item" style="direction:ltr">
+    <div class="contact-item">
     <i class="flaticon-call-1"></i>
     <a href="tel:{{ setting.call }}">{{ setting.call }}</a>
     </div>
@@ -22,22 +22,6 @@
     </div>
     <div class="col-xl-4 col-lg-12">
     <div class="header-top-right">
-    <div class="navbar-option-item navbar-language dropdown language-option">
-    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="las la-globe"></i>
-    <span class="lang-name"></span>
-    </button>
-    <div class="dropdown-menu language-dropdown-menu">
-    <a class="dropdown-item" href="{{ setting.link }}">
-    <img src="{% static "icon/ir.png" %}" alt="flag">
-    فارسی
-    </a>
-    <a class="dropdown-item" href="http://www.kilava.de">
-    <img src="{% static "icon/de.png" %}" alt="flag">
-    Germany
-    </a>
-    </div>
-    </div>
     <ul class="social-profile style2 list-style">
     <li><a target="_blank" href="https://facebook.com/"><i class="flaticon-facebook-app-symbol"></i> </a></li>
     <li><a target="_blank" href="https://twitter.com/"> <i class="flaticon-twitter"></i>
@@ -65,7 +49,7 @@
     <div id="menu">
     <ul class="main-menu list-style">
     <li class="has-children">
-    <a class="menu-expand">سرویس</a>
+    <a class="menu-expand">Services</a>
     <ul class="sub-menu list-style">
         {% for service in services %}
     <li><a  href="{{ service.get_absolute_url }}">{{ service.title }}</a></li>
@@ -73,10 +57,10 @@
     </ul>
     </li>
     <li>
-    <a  href="{% url 'About:about-us' %}">درباره ما</a>
+    <a  href="{% url 'About:about-us' %}">About Us</a>
     </li>
     <li>
-    <a  href="{% url 'Contact:contact-us' %}">تماس با ما</a>
+    <a  href="{% url 'Contact:contact-us' %}">Contact Us</a>
     </li>
     </ul>
     </div>

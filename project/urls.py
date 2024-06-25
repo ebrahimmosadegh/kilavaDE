@@ -1,5 +1,5 @@
 """
-URL configuration for kilavair project.
+URL configuration for kilavade project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from kilavair import settings
-from kilavair.views import home_page, header, footer, handler404, handler500
+from project import settings
+from project.views import home_page, header, footer, handler404, handler500
 from .sitemaps import ArticleSitemap, StaticSitemap, HomeSitemap
 from django.contrib.sitemaps.views import sitemap, index
 from .robots import robots_txt
@@ -36,6 +36,7 @@ urlpatterns = [
     path('', include('contact.urls', namespace='Contact')),
     path('', include('about.urls', namespace='About')),
     path('', include('services.urls', namespace='Services')),
+    path('', include('privacy.urls', namespace='Privacy')),
     path('header', header, name='header'),
     path('footer', footer, name='footer'),
     path('tinymce/', include('tinymce.urls')),

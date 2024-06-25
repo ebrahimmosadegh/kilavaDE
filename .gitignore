@@ -13,8 +13,8 @@ Icon
 *.jpg
 *.png
 *.mp4
-media/
-staticfiles/
+kilavade_media/
+static/
 migrations/
 *.zip
 # Thumbnails

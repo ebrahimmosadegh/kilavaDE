@@ -1,7 +1,7 @@
 <!doctype html>
 {% load static %}
 {% load render_partial %}
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
@@ -20,7 +20,7 @@
         {% block content %}{% endblock %}
         {% render_partial 'footer' %}
     </div>
-<a href="#" class="back-to-top"><i class="flaticon-next"></i> بالا</a>
+<a href="#" class="back-to-top"><i class="flaticon-next"></i> UP</a>
     {% block Footer_ref %}{% endblock %}
     {% include 'shared/_FooterReferences.html' %}
 </body>

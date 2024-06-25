@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from kilavair.views import settings
+from project.views import settings
 from .models import Services, Gallery
 
 # Create your views here.
